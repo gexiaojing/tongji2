@@ -1,0 +1,77 @@
+mysql> create table gouwuche(
+    -> id int primary key not null auto_increment,
+    -> name varchar(45),
+    -> enjoy varchar(45),
+    -> discount varchar(45),
+    -> 12hope varchar(45));
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> select * from gouwuche;
+Empty set (0.07 sec)
+
+mysql> insert into gouwuche(id,name,enjoy,discount,12hope) values(1,"gx","clothes","yes","food");
+Query OK, 1 row affected (0.08 sec)
+
+mysql> desc gouwuche;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(45) | YES  |     | NULL    |                |
+| enjoy    | varchar(45) | YES  |     | NULL    |                |
+| discount | varchar(45) | YES  |     | NULL    |                |
+| 12hope   | varchar(45) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+5 rows in set (0.04 sec)
+mysql> insert into gouwuche(id,name,enjoy,discount,12hope) values (2,"qw","food","no","clothes"), (3,"er","clothes","no","food"), (4,"sa","food","yes","clothes");
+Query OK, 3 rows affected (0.06 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+mysql> desc gouwuche;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(45) | YES  |     | NULL    |                |
+| enjoy    | varchar(45) | YES  |     | NULL    |                |
+| discount | varchar(45) | YES  |     | NULL    |                |
+| 12hope   | varchar(45) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+mysql> update gouwuche set 12hope="clothes" where id=3;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from gouwuche;
++----+------+---------+----------+---------+
+| id | name | enjoy   | discount | 12hope  |
++----+------+---------+----------+---------+
+|  1 | gx   | clothes | yes      | food    |
+|  2 | qw   | food    | no       | clothes |
+|  3 | er   | clothes | no       | clothes |
+|  4 | sa   | food    | yes      | clothes |
++----+------+---------+----------+---------+
+4 rows in set (0.00 sec)
+mysql> select * from gouwuche;
++----+------+---------+----------+---------+
+| id | name | enjoy   | discount | 12hope  |
++----+------+---------+----------+---------+
+|  1 | gx   | clothes | yes      | food    |
+|  2 | qw   | food    | no       | clothes |
+|  3 | er   | clothes | no       | clothes |
+|  4 | sa   | food    | yes      | clothes |
++----+------+---------+----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> delete from gouwuche where id=1;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from gouwuche;
++----+------+---------+----------+---------+
+| id | name | enjoy   | discount | 12hope  |
++----+------+---------+----------+---------+
+|  2 | qw   | food    | no       | clothes |
+|  3 | er   | clothes | no       | clothes |
+|  4 | sa   | food    | yes      | clothes |
++----+------+---------+----------+---------+
+3 rows in set (0.00 sec)
+
