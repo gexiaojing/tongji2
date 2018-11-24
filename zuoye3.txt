@@ -1,0 +1,48 @@
+mysql> create table movie( id int primary key not null auto_increment, name varchar(20), year int not null, director varchar(20), score decimal(2,1) not null);
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> insert into movie(id,name,year,director,score) values (1,"ying",2018,"zym",7.4), (2,"tangrenjietanan",2015,"csc",7.5), (3,"beishangniliuchenghe",2018,"ll",5.8), (4,"honghaixingdong",2018,"lcx",8.3);
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+mysql> select * from movie;
++----+----------------------+------+----------+-------+
+| id | name                 | year | director | score |
++----+----------------------+------+----------+-------+
+|  1 | ying                 | 2018 | zym      |   7.4 |
+|  2 | tangrenjietanan      | 2015 | csc      |   7.5 |
+|  3 | beishangniliuchenghe | 2018 | ll       |   5.8 |
+|  4 | honghaixingdong      | 2018 | lcx      |   8.3 |
++----+----------------------+------+----------+-------+
+4 rows in set (0.01 sec)
+mysql> select * from movie where name like "%ying%";                           +----+------+------+----------+-------+
+| id | name | year | director | score |
++----+------+------+----------+-------+
+|  1 | ying | 2018 | zym      |   7.4 |
++----+------+------+----------+-------+
+1 row in set (0.00 sec)
+mysql> select * from movie where director like "%ll%";
++----+----------------------+------+----------+-------+
+| id | name                 | year | director | score |
++----+----------------------+------+----------+-------+
+|  3 | beishangniliuchenghe | 2018 | ll       |   5.8 |
++----+----------------------+------+----------+-------+
+1 row in set (0.00 sec)
+mysql> select * from movie where year=2018;
++----+----------------------+------+----------+-------+
+| id | name                 | year | director | score |
++----+----------------------+------+----------+-------+
+|  1 | ying                 | 2018 | zym      |   7.4 |
+|  3 | beishangniliuchenghe | 2018 | ll       |   5.8 |
+|  4 | honghaixingdong      | 2018 | lcx      |   8.3 |
++----+----------------------+------+----------+-------+
+3 rows in set (0.00 sec)
+mysql> select * from movie where score>7;
++----+-----------------+------+----------+-------+
+| id | name            | year | director | score |
++----+-----------------+------+----------+-------+
+|  1 | ying            | 2018 | zym      |   7.4 |
+|  2 | tangrenjietanan | 2015 | csc      |   7.5 |
+|  4 | honghaixingdong | 2018 | lcx      |   8.3 |
++----+-----------------+------+----------+-------+
+3 rows in set (0.02 sec)
+
