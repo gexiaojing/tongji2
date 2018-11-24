@@ -1,0 +1,27 @@
+mysql> create table sc( id int primary key not null unique auto_increment, name varchar(20));
+Query OK, 0 rows affected (0.15 sec)
+mysql> desc sc;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(20) | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+2 rows in set (0.06 sec)
+mysql> insert into sc(id,name) values(1,"clothes"),(2,"food"),(3,"shoes");
+Query OK, 3 rows affected (0.21 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+mysql> delete from sc where id=2;
+Query OK, 1 row affected (0.13 sec)
+
+mysql> select * from sc;
++----+---------+
+| id | name    |
++----+---------+
+|  1 | clothes |
+|  3 | shoes   |
++----+---------+
+2 rows in set (0.01 sec)
+
+
+
